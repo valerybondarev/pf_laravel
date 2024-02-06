@@ -1,0 +1,68 @@
+.selection__container {
+  background-color: white;
+  height: 30%;
+}
+
+.selection__table {
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  line-height: 16px;
+  width: 100%;
+}
+
+.selection__block {
+  background-color: rgba(235, 235, 244, 1);
+}
+
+.selection__item {
+  border-bottom: 1px solid #F0F0F8;
+
+}
+
+.selection__text {
+  margin: 0;
+  padding: 2% 0;
+}
+
+.selection__button {
+  background-color: transparent;
+  width: 30px;
+  height: 30px;
+  border: none;
+  cursor: pointer;
+}
+
+.selection__pencil {
+  position: relative;
+  &::after {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 0;
+    top: 5px;
+    background-image: url("../img/pencil.svg");
+    background-repeat: no-repeat;
+    background-size: 18px;
+  }
+}
+
+.selection__delete {
+  position: relative;
+  &::after {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 0;
+    top: 5px;
+    background-image: url("../img/delete.svg");
+    background-repeat: no-repeat;
+    background-size: 20px;
+  }
+}
+

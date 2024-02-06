@@ -1,0 +1,23 @@
+.addition {
+  background-color: white;
+  padding-left: 30px;
+  padding-top: 40px;
+  display: grid;
+  grid-template-rows: 25px 66px 44px;
+  height: 48%;
+}
+
+.addition__label {
+  padding: 0;
+}
+
+.addition__input {
+  width: 29%;
+  height: 46px;
+  padding-left: 20px;
+}
+
+.addition__btn {
+  border: none;
+  width: 14%;
+}

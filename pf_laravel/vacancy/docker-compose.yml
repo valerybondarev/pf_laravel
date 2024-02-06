@@ -1,0 +1,19 @@
+version: '3.6'
+
+services:
+  vacancy-bot:
+    container_name: vacancy-bot
+    image: goldcarrot/php8.0-apache:latest
+    working_dir: /var/www/application
+    volumes:
+      - ./:/var/www/application
+    environment:
+      VIRTUAL_HOST: vacancy-bot.local.gd
+      APACHE_DOCUMENT_ROOT: /var/www/application/public
+    networks:
+      - goldcarrot
+
+networks:
+  goldcarrot:
+    name: goldcarrot
+    driver: bridge

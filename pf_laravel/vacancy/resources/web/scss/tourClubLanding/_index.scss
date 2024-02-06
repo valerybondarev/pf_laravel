@@ -1,0 +1,91 @@
+body {
+  position: relative;
+  overflow: auto;
+  font-size: 16px;
+
+  overflow-x: hidden;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+
+  background: #ececec;
+}
+
+.tour-club-landing {
+  padding-bottom: 80px;
+
+  .header {
+    padding: 0 20px;
+    left: 50%;
+    @media screen and (max-width: 1720px) {
+      padding: 0 10px;
+    }
+
+    .avatar {
+      img {
+        display: block;
+        margin: 0 auto;
+        border-radius: 50%;
+        height: 95px;
+        width: 95px;
+      }
+    }
+
+    h1 {
+      text-align: center;
+      font-family: 'Roboto', sans-serif;
+    }
+  }
+
+  .content {
+    width: 50%;
+    @media screen and (max-width: 1720px) {
+      width: auto;
+    }
+    margin-right: auto;
+    margin-left: auto;
+    font-family: 'Roboto', sans-serif;
+
+    .events {
+      .event-block {
+        padding-top: 5px;
+        padding-bottom: 5px;
+
+        a.button-link {
+          display: block;
+          min-height: 60px;
+          background: #a5ff00;
+          text-decoration: none;
+          padding: 10px;
+          border: 2px;
+          flex-direction: column;
+          font-family: 'Roboto', sans-serif;
+          color: black;
+          border-radius: 5px;
+          div {
+            display: flex;
+            justify-content: center;
+            flex-flow: row wrap;
+            padding: 6px;
+          }
+          .title {
+            width: 100%;
+            font-family: 'Roboto', sans-serif;
+            text-transform: none;
+          }
+          .subtitle {
+            color: #3f3f3f;
+            opacity: .7;
+            font-weight: normal;
+            font-family: 'Roboto', sans-serif;
+            margin-top: 2.6px;
+          }
+        }
+      }
+    }
+    .about {
+      margin-top: 20px;
+    }
+  }
+
+}

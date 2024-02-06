@@ -1,0 +1,26 @@
+.select2 {
+    &-selection {
+        &__choice {
+            &__remove {
+                margin-left: 0 !important;
+            }
+
+            &__display {
+                padding-left: 15px !important;
+            }
+        }
+
+        &__clear {
+            margin-top: 0 !important;
+            margin-right: 5px !important;
+        }
+    }
+
+    &-results {
+        &__option {
+            &--highlighted {
+                background-color: #81aacb !important;
+            }
+        }
+    }
+}

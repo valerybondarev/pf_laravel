@@ -1,0 +1,118 @@
+.filter {
+  margin-bottom: 20px;
+}
+
+.filter__candidate {
+position: relative;
+  &::after {
+    position: absolute;
+    display: block;
+    content: "";
+    width: 15px;
+    height: 15px;
+    background-image: url("../img/plus.svg");
+    background-repeat: no-repeat;
+    top: 4px;
+    right: 2px;
+  }
+}
+
+.filter__link {
+  color: rgba(118, 121, 138, 1);
+  font-size: 20px;
+  line-height: 23px;
+  font-weight: 500;
+  margin: 0;
+  padding-bottom: 20px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding-left: 0;
+}
+
+.filter__link--active {
+  color: rgba(33, 33, 33, 1);
+  border-bottom: 3px solid rgba(72, 171, 65, 1);
+  margin-right: 60px;
+}
+
+.filter__container {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 20px 46px;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 8px;
+  border-color: rgba(225, 229, 233, 1);
+  padding: 16px 20px 25px 20px;
+}
+
+.filter__label--first {
+  position: relative;
+  &::after {
+    position: absolute;
+    display: block;
+    content: "";
+    width: 12px;
+    height: 12px;
+    background-image: url("../img/loupe.svg");
+    background-repeat: no-repeat;
+    top: 45px;
+    left: 17px;
+    cursor: pointer;
+  }
+}
+
+.filter__label--second  {
+  position: relative;
+  &::after {
+    position: absolute;
+    display: block;
+    content: "";
+    width: 14px;
+    height: 9px;
+    background-image: url("../img/vector.svg");
+    background-repeat: no-repeat;
+    top: 46px;
+    right: 10px;
+    cursor: pointer;
+  }
+}
+
+.filter__label--third {
+  margin-left: 29px;
+  position: relative;
+  &::after {
+    position: absolute;
+    display: block;
+    content: "";
+    width: 14px;
+    height: 9px;
+    background-image: url("../img/vector.svg");
+    background-repeat: no-repeat;
+    top: 46px;
+    right: 10px;
+    cursor: pointer;
+  }
+}
+
+.filter__input--first {
+  margin-right: 17px;
+  margin-top: 9px;
+  height: 40px;
+  padding-left: 38px;
+}
+
+.filter__input--second {
+  padding-left: 16px;
+  margin-right: -6px;
+  height: 40px;
+  margin-top: 9px;
+}
+
+.filter__input--third {
+  padding-left: 16px;
+  margin-top: 9px;
+  height: 40px;
+  margin-left: 24px;
+  margin-right: -2px;
+}

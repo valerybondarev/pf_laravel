@@ -1,0 +1,37 @@
+.tabs__list {
+  list-style: none;
+	padding: 0;
+	display: flex;
+	align-items: center;
+  border-bottom: 1px solid #D5D5DD;
+  margin: 0 46% 4.5% 0;
+}
+
+.tabs__item:not(:last-child) {
+	margin-right: 8%;
+}
+
+.tabs__content {
+  display: none;
+}
+
+.tabs__btn {
+  border: none;
+  background-color: transparent;
+  color: rgba(118, 121, 138, 1);
+  cursor: pointer;
+  font-weight: 500;
+	font-size: 20px;
+	line-height: 23px;
+	text-align: center;
+}
+
+.tabs__btn--active {
+  color: rgba(33, 33, 33, 1);
+  border-bottom: 3px solid rgba(72, 171, 65, 1);
+  padding-bottom: 2%;
+}
+
+.tabs__content--active {
+	display: block;
+}

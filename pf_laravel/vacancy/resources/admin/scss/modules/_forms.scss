@@ -1,0 +1,11 @@
+.form-control {
+  color: #525252;
+}
+
+.focused .form-control {
+  color: #333333
+}
+
+.form-control:focus {
+  color: #333333
+}

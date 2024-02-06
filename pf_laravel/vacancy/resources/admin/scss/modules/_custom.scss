@@ -1,0 +1,36 @@
+.bg {
+    &-primary {
+        background: $background;
+        color: $color;
+    }
+}
+
+.btn {
+    border: 0;
+    &-primary {
+        background: $background;
+        color: $color;
+
+        &:hover {
+            background: $hoverBackground;
+            color: $hoverColor;
+        }
+    }
+}
+
+.text {
+    &-primary {
+        background: $background;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+}
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  line-height: 1.42;
+  border-radius: 15px;
+}

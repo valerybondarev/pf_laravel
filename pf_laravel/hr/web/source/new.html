@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>hr-webdoka-net</title>
+  <link rel="preload" href="fonts/ubunturegular.woff2" as="font">
+  <link rel="preload" href="fonts/ubunturegular.woff" as="font">
+  <link rel="preload" href="fonts/ubuntumedium.woff2" as="font">
+  <link rel="preload" href="fonts/ubuntumedium.woff" as="font">
+  <link rel="preload" href="fonts/ubuntubold.woff2" as="font">
+  <link rel="preload" href="fonts/ubuntubold.woff" as="font">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link href="./css/style.min.css" rel="stylesheet">
+</head>
+
+<body class="page-body">
+
+  <header class="page-header">
+    <a class="page-header__logo">
+      <picture>
+        <img class="page-header__logo-image" src="img/logo.png" srcset="./img/logo@2x.png 2x" width="175" height="44"
+          alt="Логотип">
+      </picture>
+    </a>
+
+    <nav class="main-nav">
+      <ul class="main-nav__list site-list">
+        <li class="site-list__item">
+          <a href="index.html" class="site-list__link site-list__link--active">
+            <svg class="site-list__svg" width="22" height="22">
+              <use xlink:href="./img/sprite.svg#users">
+              </use>
+            </svg>
+            Кандидаты
+          </a>
+        </li>
+        <li class="site-list__item">
+          <a href="invitation.html" class="site-list__link">
+            <svg class="site-list__svg" width="22" height="22">
+              <use xlink:href="./img/sprite.svg#add">
+              </use>
+            </svg>
+            Пригласить кандидата
+          </a>
+        </li>
+        <li class="site-list__item">
+          <a href="settings.html" class="site-list__link">
+            <svg class="site-list__svg" width="22" height="22">
+              <use xlink:href="./img/sprite.svg#settings">
+              </use>
+            </svg>
+            Настройки
+          </a>
+        </li>
+        <li class="site-list__item">
+          <a href="#" class="site-list__link site-list__link--output">
+            <svg class="site-list__svg" width="22" height="22">
+              <use xlink:href="./img/sprite.svg#output">
+              </use>
+            </svg>
+            Выйти
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="page-main">
+
+    <section class="candidates">
+      <h2 class="candidates__heading heading">Новый сотрудник</h2>
+    </section>
+
+    <div class="container">
+      <h2 class="head">Личные данные</h2>
+      <section class="personal">
+        <div class="personal__container">
+          <label class="personal__label label" for="fam">Имя, Фамилия</label>
+          <input class="personal__input personal__input--first input" type="text" id="fam" name="name"
+            placeholder="Введите имя" required>
+          <label class="personal__label label" for="mail">Адрес почты</label>
+          <input class="personal__input personal__input--first input" type="text" id="mail" name="name"
+            placeholder="Введите почту" required>
+
+          <div class="personal__unit">
+            <div class="personal__part">
+              <label class="personal__label personal__label--second label" for="gender">Выберите пол</label>
+              <input class="personal__input personal__input--second input" type="text" id="gender" name="name"
+                placeholder="Выберите пол" required>
+            </div>
+            <div class="personal__part">
+              <label class="personal__label personal__label--second label" for="date">Дата рождения</label>
+              <input class="personal__input personal__input--second input" type="text" id="date" name="name"
+                placeholder="дд.мм.гг" required>
+            </div>
+          </div>
+        </div>
+        <div class="personal__block">
+          <p class="personal__photo">Фотография</p>
+          <button class="personal__btn">Добавить фото</button>
+        </div>
+      </section>
+
+      <h2 class="head">Пароль</h2>
+      <section class="password">
+        <div class="password__unit">
+          <div class="password__part">
+            <label class="password__label label" for="password">Пароль</label>
+            <input class="password__input input" type="text" id="password" name="name" placeholder="Придумайте пароль"
+              required>
+          </div>
+          <div class="password__part">
+            <label class="password__label label" for="password2">Пароль</label>
+            <input class="password__input input" type="text" id="password2" name="name" placeholder="Повторите пароль"
+              required>
+          </div>
+        </div>
+      </section>
+
+      <h2 class="head">Контактные данные</h2>
+      <section class="contact">
+        <div class="contact__unit">
+          <div class="contact__part">
+            <label class="contact__label label" for="district">Район</label>
+            <input class="contact__input input" type="text" id="district" name="name" placeholder="Введите название района"
+              required>
+          </div>
+          <div class="contact__part">
+            <label class="contact__label label" for="whatsapp">Ватсап</label>
+            <input class="contact__input input" type="text" id="whatsapp" name="name" placeholder="+7 (___) ___ __ __"
+              required>
+          </div>
+          <div class="contact__part">
+            <label class="contact__label label" for="telephone">Телефон</label>
+            <input class="contact__input input" type="text" id="telephone" name="name" placeholder="+7 (___) ___ __ __"
+              required>
+          </div>
+          <div class="contact__part">
+            <label class="contact__label label" for="viber">Вайбер</label>
+            <input class="contact__input input" type="text" id="viber" name="name" placeholder="+7 (___) ___ __ __"
+              required>
+          </div>
+          <div class="contact__part">
+            <label class="contact__label label" for="telegram">Телеграм</label>
+            <input class="contact__input input" type="text" id="telegram" name="name" placeholder="@"
+              required>
+          </div>
+          <div class="contact__part">
+            <label class="contact__label label" for="skype">Скайп</label>
+            <input class="contact__input input" type="text" id="skype" name="name" placeholder="Никнейм"
+              required>
+          </div>
+        </div>
+      </section>
+
+      <h2 class="head">Профильные данные</h2>
+      <section class="skill">
+        <div class="skill__unit">
+          <div class="skill__part">
+            <label class="skill__label label" for="summary">Резюме на hh.ru</label>
+            <input class="skill__input input" type="text" id="summary" name="name" placeholder="Ссылка на резюме"
+              required>
+          </div>
+          <div class="skill__part">
+            <label class="skill__label label" for="education">Образование</label>
+            <input class="skill__input input" type="text" id="education" name="name" placeholder="Введите образование"
+              required>
+          </div>
+          <div class="skill__part">
+            <label class="skill__label label" for="experience">Опыт работы</label>
+            <input class="skill__input input" type="text" id="experience" name="name" placeholder="Сколько лет опыта"
+              required>
+          </div>
+          <div class="skill__part">
+            <label class="skill__label label" for="experience">Выберите навыки</label>
+            <input class="skill__input input" type="text" id="experience" name="name" placeholder=""
+              required>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <section class="registration">
+    <button class="registration__btn button">Зарегистрировать сотрудника</button>
+</section>
+  </main>
+
+</body>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>hr-webdoka-net</title>
+  <link rel="preload" href="fonts/ubunturegular.woff2" as="font">
+  <link rel="preload" href="fonts/ubunturegular.woff" as="font">
+  <link rel="preload" href="fonts/ubuntumedium.woff2" as="font">
+  <link rel="preload" href="fonts/ubuntumedium.woff" as="font">
+  <link rel="preload" href="fonts/ubuntubold.woff2" as="font">
+  <link rel="preload" href="fonts/ubuntubold.woff" as="font">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link href="./css/style.min.css" rel="stylesheet">
+</head>
+
+<body class="page-body">
+
+  <header class="page-header">
+    <a class="page-header__logo">
+      <picture>
+        <img class="page-header__logo-image" src="img/logo.png" srcset="./img/logo@2x.png 2x" width="175" height="44"
+          alt="Логотип">
+      </picture>
+    </a>
+
+    <nav class="main-nav">
+      <ul class="main-nav__list site-list">
+        <li class="site-list__item">
+          <a href="index.html" class="site-list__link">
+            <svg class="site-list__svg" width="22" height="22">
+              <use xlink:href="./img/sprite.svg#users">
+              </use>
+            </svg>
+            Кандидаты
+          </a>
+        </li>
+        <li class="site-list__item">
+          <a href="invitation.html" class="site-list__link  site-list__link--active">
+            <svg class="site-list__svg" width="22" height="22">
+              <use xlink:href="./img/sprite.svg#add">
+              </use>
+            </svg>
+            Пригласить кандидата
+          </a>
+        </li>
+        <li class="site-list__item">
+          <a href="settings.html" class="site-list__link">
+            <svg class="site-list__svg" width="22" height="22">
+              <use xlink:href="./img/sprite.svg#settings">
+              </use>
+            </svg>
+            Настройки
+          </a>
+        </li>
+        <li class="site-list__item">
+          <a href="#" class="site-list__link site-list__link--output">
+            <svg class="site-list__svg" width="22" height="22">
+              <use xlink:href="./img/sprite.svg#output">
+              </use>
+            </svg>
+            Выйти
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="page-main">
+
+    <section class="candidates">
+      <h2 class="candidates__heading heading">Пригласить пользователя</h2>
+    </section>
+
+    <section class="addition">
+      <label class="addition__label label" for="name">Добавить участника</label>
+      <input class="addition__input input" type="text" id="name" name="name"
+      placeholder="Введите email" required>
+      <button class="addition__btn button">Добавить</button>
+    </section>
+
+  </main>
+
+</body>

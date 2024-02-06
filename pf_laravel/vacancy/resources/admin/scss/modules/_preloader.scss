@@ -1,0 +1,38 @@
+.app {
+    &__preloader {
+        position: absolute;
+        visibility: visible;
+        opacity: 1;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2000;
+
+        transition: 0.5s linear;
+
+        &--spinner {
+            align-self: center;
+            width: 60px;
+            height: 60px;
+        }
+    }
+
+    &__content {
+        visibility: hidden;
+        opacity: 0;
+        transition: 0.5s linear;
+        transition-delay: 0.25s;
+    }
+
+    &__container__loaded &__preloader {
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    &__container__loaded &__content {
+        visibility: visible;
+        opacity: 1;
+    }
+
+}

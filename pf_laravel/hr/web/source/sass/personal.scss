@@ -1,0 +1,77 @@
+.personal {
+  display: grid;
+  grid-template-columns: 41% 50%;
+}
+
+.personal__container {
+  display: grid;
+}
+
+.personal__label {
+  margin-bottom: 10px;
+}
+
+.personal__input {
+  height: 46px;
+  margin-bottom: 20px;
+  padding-left: 20px;
+}
+
+.personal__input--first {
+  width: 85%;
+}
+
+.personal__input--second {
+  width: 70%;
+}
+
+.personal__unit {
+  display: flex;
+}
+
+.personal__part {
+  position: relative;
+  &::before {
+    position: absolute;
+    display: block;
+    content: "";
+    width: 15px;
+    height: 15px;
+    background-image: url("../img/vector.svg");
+    top: 42px;
+    right: 20%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+  }
+}
+
+.personal__photo {
+  font-size: 14px;
+  line-height: 20px;
+  padding: 0;
+  margin: 0 0 10px;
+}
+
+.personal__btn {
+  background-color: rgba(248, 248, 251, 1);
+  border: 1px dashed rgba(225, 229, 233, 1);
+  border-radius: 8px;
+  width: 238px;
+  height: 238px;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 24px;
+  color: rgba(118, 121, 138, 1);
+  padding-top: 29px;
+  position: relative;
+  &::before {
+    position: absolute;
+    display: block;
+    content: "";
+    width: 15px;
+    height: 15px;
+    background-image: url("../img/plus.svg");
+    top: 93px;
+    left: 112px;
+  }
+}

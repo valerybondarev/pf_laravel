@@ -1,0 +1,8 @@
+stages:
+  - deploy
+job1:
+  stage: deploy
+  script:
+    - /home/gitlab-runner/deploy/laravel_base.sh
+  only:
+    - master

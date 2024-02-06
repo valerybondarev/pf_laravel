@@ -1,0 +1,43 @@
+{
+    "private": true,
+    "scripts": {
+        "dev": "npm run development",
+        "development": "mix",
+        "watch": "mix watch",
+        "watch-poll": "mix watch -- --watch-options-poll=1000",
+        "hot": "mix watch --hot",
+        "prod": "npm run production",
+        "production": "mix --production"
+    },
+    "devDependencies": {
+        "browser-sync": "^2.27.5",
+        "browser-sync-webpack-plugin": "^2.3.0",
+        "gulp-cheerio": "^0.6.3",
+        "gulp-replace": "^0.6.1",
+        "gulp-svg-sprite": "^1.5.0",
+        "gulp-svgmin": "^4.0.1",
+        "laravel-mix": "^6.0.28",
+        "lodash": "^4.17.19",
+        "sass": "^1.38.0",
+        "sass-loader": "^12.1.0",
+        "vinyl-fs": "^3.0.3"
+    },
+    "dependencies": {
+        "@editorjs/editorjs": "^2.22.2",
+        "@editorjs/embed": "^2.4.6",
+        "@editorjs/header": "^2.6.1",
+        "@editorjs/image": "^2.6.1",
+        "@editorjs/list": "^1.6.2",
+        "@editorjs/paragraph": "^2.8.0",
+        "@editorjs/quote": "^2.4.0",
+        "bootstrap": "4.3.1",
+        "cropperjs": "^1.5.12",
+        "dropzone": "^5.9.2",
+        "inputmask": "^5.0.6",
+        "jquery": "^3.5.1",
+        "slick-carousel": "^1.8.1",
+        "sortablejs": "^1.14.0",
+        "sweetalert": "^2.1.2",
+        "sweetalert2": "^11.1.4"
+    }
+}

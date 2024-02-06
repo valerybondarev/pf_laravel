@@ -1,0 +1,37 @@
+.site-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.site-list__item {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.site-list__svg {
+  fill: rgba(230, 230, 241, 1);
+  margin-right: 14px;
+}
+
+.site-list__svg:hover {
+  fill: rgba(72, 171, 65, 1);
+}
+
+.site-list__link {
+  color: rgba(230, 230, 241, 0.7);
+  text-decoration: none;
+  display: block;
+  padding-bottom: 26px;
+  font-weight: 400;
+}
+
+.site-list__link--output {
+  margin-top: 514px;
+  padding-bottom: 41px;
+}
+
+.site-list__link--active {
+  color: rgba(230, 230, 241, 1);
+  font-weight: 500;
+}

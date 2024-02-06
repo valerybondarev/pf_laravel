@@ -1,0 +1,13 @@
+.candidates {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 50px;
+}
+
+.candidates__link {
+  width: 220px;
+  height: 31px;
+  text-align: center;
+  padding-top: 13px;
+  margin-top: 6px;
+}

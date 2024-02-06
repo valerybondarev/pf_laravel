@@ -1,0 +1,13 @@
+.page-header {
+  text-align: left;
+  position: relative;
+  background: #f1f1f8;
+}
+
+.page-header__logo {
+  position: absolute;
+  left: 30px;
+  top: 45px;
+  cursor: pointer;
+  z-index: 1;
+}
