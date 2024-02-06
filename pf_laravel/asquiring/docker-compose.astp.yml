@@ -1,0 +1,88 @@
+# Конфиг для локального запуска параллельно с проектом https://git.astrovolga.ru/web/astroplatform.git
+# требует замены ACQUIRING_DSN и URL_ACQUIRE_PAYMENT в astroplatform на локальные
+
+version: '3.8'
+
+services:
+  db:
+    container_name: db
+    image: postgres:12
+    restart: always
+    networks:
+      - default
+    labels:
+      - "traefik.enable=false"
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-payments}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-ChangeMe}
+      POSTGRES_USER: ${POSTGRES_USER:-symfony}
+    volumes:
+      - db-data:/var/lib/postgresql/data:rw
+
+  php-fpm:
+    container_name: php-fpm
+    build:
+      context: ./dockerfiles/php-fpm
+    networks:
+      - default
+      - astroplatform
+    labels:
+      - "traefik.enable=false"
+    depends_on:
+      - db
+    environment:
+      APP_ENV: ${APP_ENV}
+      APP_SECRET: ${APP_SECRET}
+      DATABASE_URL: ${DATABASE_URL}
+      XDEBUG_CONFIG: 'idekey=PHPSTORM client_host=172.17.0.1 client_port=9003 start_with_request=yes mode=develop,debug discover_client_host=false'
+      PHP_IDE_CONFIG: 'serverName=DockerPayments'
+    volumes:
+      - ./:/var/www
+    expose:
+      - 9000
+
+  rabbitmq:
+    container_name: rabbitmq
+    image: rabbitmq
+    env_file:
+      - .env
+    depends_on:
+      - db
+    networks:
+      - default
+    labels:
+      - "traefik.enable=false"
+    environment:
+      RABBITMQ_PASSWORD: ${RABBITMQ_PASSWORD:-guest}
+      RABBITMQ_USER: ${RABBITMQ_USER:-guest}
+
+  payments:
+    container_name: payments
+    build:
+      context: ./dockerfiles/nginx
+    networks:
+      - default
+      - astroplatform
+    labels:
+      - "traefik.backend=payments"
+      - "traefik.frontend.rule=Host:payments.astrovolga.st"
+      - "traefik.docker.network=astroplatform/default"
+    volumes:
+      - ./:/var/www
+      - ./dockerfiles/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./dockerfiles/nginx/sites/:/etc/nginx/sites-available
+      - ./dockerfiles/nginx/conf.d/:/etc/nginx/conf.d
+      - ./dockerfiles/logs:/var/log
+    depends_on:
+      - php-fpm
+
+volumes:
+    db-data:
+
+networks:
+  astroplatform:
+    external:
+      name: astroplatform/default
+  default:
+    driver: bridge
+

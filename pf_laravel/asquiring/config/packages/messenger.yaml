@@ -1,0 +1,55 @@
+framework:
+    messenger:
+        # Uncomment this (and the failed transport below) to send failed messages to this transport for later handling.
+        # failure_transport: failed
+
+        serializer:
+            default_serializer: messenger.transport.symfony_serializer
+
+        transports:
+            async:
+                dsn: '%env(MESSENGER_TRANSPORT_DSN)%'
+                options:
+                    exchange:
+                        name: '%env(MESSENGER_EXCHANGE_NAME)%'
+                    queues:
+                        payments_messages: ~
+
+            lotus:
+                dsn: '%env(MESSENGER_TRANSPORT_DSN)%'
+                options:
+                    exchange:
+                        name: '%env(LOTUS_MESSENGER_EXCHANGE_NAME)%'
+                    queues:
+                        lotus_notifications: ~
+
+            ucs_payment:
+                dsn: '%env(MESSENGER_TRANSPORT_DSN)%'
+                serializer: App\Services\ExternalSystem\UCS\Serializer
+                options:
+                    exchange:
+                        name: '%env(UCS_PAYMENT_MESSENGER_EXCHANGE_NAME)%'
+                    queues:
+                        ucs_payment_notifications: ~
+
+#           пример как поделить сообщения на разные очереди https://symfonycasts.com/screencast/messenger/priority-exchange#play
+#            payment_request:
+#                dsn: '%env(MESSENGER_TRANSPORT_DSN)%'
+#                options:
+#                    exchange:
+#                        name: messages
+#                        type: direct
+#                        default_publish_routing_key: payment_request
+#                    queues:
+#                        payment_request_messages:
+#                            binding_keys: [ payment_request ]
+
+        routing:
+            App\Message\OrderStatusChange: async
+            App\Message\SuccessPaymentNotification: async
+            App\Message\PaymentRequestMessage: async
+            App\Message\PaymentResponseMessage: async
+            App\Message\PaymentHistoryMessage: async
+            App\Message\VisitedMessage: async
+            App\Message\LotusNotification: lotus
+            App\Message\UCSPaymentNotification: ucs_payment

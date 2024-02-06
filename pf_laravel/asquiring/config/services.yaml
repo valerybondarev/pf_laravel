@@ -1,0 +1,197 @@
+# This file is the entry point to configure your own services.
+# Files in the packages/ subdirectory configure your dependencies.
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
+parameters:
+
+services:
+    # default configuration for services in *this* file
+    _defaults:
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
+    _instanceof:
+        App\Intf\OrderPayInterface:
+            tags: ['order_pay']
+        App\Intf\OrderDetailInterface:
+            tags: ['order_detail']
+        App\Intf\PaymentNotifierInterface:
+            tags: ['payment_notifier']
+
+    # makes classes in src/ available to be used as services
+    # this creates a service per class whose id is the fully-qualified class name
+    App\:
+        resource: '../src/'
+        exclude:
+            - '../src/DependencyInjection/'
+            - '../src/Entity/'
+            - '../src/Kernel.php'
+            - '../src/Tests/'
+
+    # add more service definitions when explicit configuration is needed
+    # please note that last definitions always *replace* previous ones
+
+    # ALFA #################################
+    App\Services\PaymentServices\Alfa\AlfaClientConfig:
+        arguments:
+            $host: '%env(string:ALFA_HOST)%'
+            $login: '%env(string:ALFA_LOGIN)%'
+            $password: '%env(string:ALFA_PASSWORD)%'
+            $returnUrl: '%env(string:ALFA_RETURN_URL)%'
+
+    App\Services\PaymentServices\Alfa\AlfaApi:
+        bind:
+            $client: '@App\Services\PaymentServices\Alfa\AlfaClient'
+            $config: '@App\Services\PaymentServices\Alfa\AlfaClientConfig'
+
+    App\Services\PaymentServices\Alfa\AlfaClient:
+        bind:
+            $config: '@App\Services\PaymentServices\Alfa\AlfaClientConfig'
+
+    # SBER #################################
+    App\Services\PaymentServices\Sber\SberClientConfig:
+        arguments:
+            $host: '%env(string:SBER_HOST)%'
+            $login: '%env(string:SBER_LOGIN)%'
+            $password: '%env(string:SBER_PASSWORD)%'
+            $returnUrl: '%env(string:SBER_RETURN_URL)%'
+
+    App\Services\PaymentServices\Sber\SberApi:
+        bind:
+            $client: '@App\Services\PaymentServices\Sber\SberClient'
+            $config: '@App\Services\PaymentServices\Sber\SberClientConfig'
+
+    App\Services\PaymentServices\Sber\SberClient:
+        bind:
+            $config: '@App\Services\PaymentServices\Sber\SberClientConfig'
+
+    # TCS #################################
+    App\Services\PaymentServices\Tcs\TCSClientConfig:
+        arguments:
+            $host: '%env(string:TCS_HOST)%'
+            $login: '%env(string:TCS_TERMINAL_KEY)%'
+            $password: '%env(string:TCS_PASSWORD)%'
+            $returnUrl: '%env(string:TCS_RETURN_URL)%'
+
+    App\Services\PaymentServices\Tcs\TCSApi:
+        bind:
+            $client: '@App\Services\PaymentServices\Tcs\TCSClient'
+            $config: '@App\Services\PaymentServices\Tcs\TCSClientConfig'
+
+    App\Services\PaymentServices\Tcs\TCSClient:
+        bind:
+            $config: '@App\Services\PaymentServices\Tcs\TCSClientConfig'
+
+    # RSHB #################################
+    App\Services\PaymentServices\Rshb\RshbClientConfig:
+        arguments:
+            $host: '%env(string:RSHB_HOST)%'
+            $login: '%env(string:RSHB_LOGIN)%'
+            $password: '%env(string:RSHB_PASSWORD)%'
+            $returnUrl: '%env(string:RSHB_RETURN_URL)%'
+
+    App\Services\PaymentServices\Rshb\RshbApi:
+        bind:
+            $client: '@App\Services\PaymentServices\Rshb\RshbClient'
+            $config: '@App\Services\PaymentServices\Rshb\RshbClientConfig'
+
+    App\Services\PaymentServices\Rshb\RshbClient:
+        bind:
+            $config: '@App\Services\PaymentServices\Rshb\RshbClientConfig'
+
+    # RBK #################################
+    App\Services\PaymentServices\Rbk\RBKClientConfig:
+        arguments:
+            $host: '%env(string:RBK_HOST)%'
+            $login: '%env(string:RBK_LOGIN)%'
+            $password: '%env(string:RBK_PASSWORD)%'
+
+    App\Services\PaymentServices\Rbk\RBKApi:
+        bind:
+            $client: '@App\Services\PaymentServices\Rbk\RBKClient'
+            $config: '@App\Services\PaymentServices\Rbk\RBKClientConfig'
+
+    App\Services\PaymentServices\Rbk\RBKClient:
+        bind:
+            $config: '@App\Services\PaymentServices\Rbk\RBKClientConfig'
+
+    # B2B #################################
+    App\Services\ExternalSystem\B2B\B2BClientConfig:
+        arguments:
+            $host: '%env(string:B2B_HOST)%'
+
+    App\Services\ExternalSystem\B2B\B2BApi:
+        bind:
+            $client: '@App\Services\ExternalSystem\B2B\B2BClient'
+            $config: '@App\Services\ExternalSystem\B2B\B2BClientConfig'
+
+    App\Services\ExternalSystem\B2B\B2BClient:
+        bind:
+            $config: '@App\Services\ExternalSystem\B2B\B2BClientConfig'
+
+    # UCS #################################
+    App\Services\ExternalSystem\UCS\UCSClientConfig:
+        arguments:
+            $host: '%env(string:UCS_HOST)%'
+            $login: '%env(string:UCS_LOGIN)%'
+            $password: '%env(string:UCS_PASSWORD)%'
+
+    App\Services\ExternalSystem\UCS\UCSApi:
+        bind:
+            $client: '@App\Services\ExternalSystem\UCS\UCSClient'
+            $config: '@App\Services\ExternalSystem\UCS\UCSClientConfig'
+
+    App\Services\ExternalSystem\UCS\UCSClient:
+        bind:
+            $config: '@App\Services\ExternalSystem\UCS\UCSClientConfig'
+
+    # LOTUS #################################
+    App\Services\ExternalSystem\Lotus\LotusClientConfig:
+        arguments:
+            $host: '%env(string:LOTUS_HOST)%'
+            $login: '%env(string:LOTUS_LOGIN)%'
+            $password: '%env(string:LOTUS_PASSWORD)%'
+
+    App\Services\ExternalSystem\Lotus\LotusApi:
+        bind:
+            $client: '@App\Services\ExternalSystem\Lotus\LotusClient'
+            $config: '@App\Services\ExternalSystem\Lotus\LotusClientConfig'
+
+    App\Services\ExternalSystem\Lotus\LotusClient:
+        bind:
+            $config: '@App\Services\ExternalSystem\Lotus\LotusClientConfig'
+
+    ##################################
+    App\Services\Listeners\EntityEventListener:
+        tags:
+            - { name: doctrine.event_listener, event: preUpdate }
+
+    App\Services\OrderService:
+        arguments:
+            $orderPayServices: !tagged_iterator order_pay
+            $orderDetailServices: !tagged_iterator order_detail
+
+    App\Services\ExternalSystem\B2B\B2BService:
+        arguments:
+            $supportedSources: '%env(csv:SERVICE_INFO_B2B)%'
+
+    App\Services\ExternalSystem\UCS\UCSService:
+        arguments:
+            $supportedSources: '%env(csv:SERVICE_INFO_UCS)%'
+
+    App\MessageHandler\SuccessPaymentNotificationHandler:
+        arguments:
+            $notifiers: !tagged_iterator payment_notifier
+
+    App\Services\ExternalSystem\Lotus\LotusService:
+        arguments:
+            $supportedSources: '%env(csv:SERVICE_INFO_LOTUS)%'
+
+    App\Services\ExternalSystem\B2B\ReportsB2BService:
+        arguments:
+            $supportedSources: '%env(csv:SERVICE_INFO_REPORTS)%'
+
+    App\Services\PaymentTypesResolver:
+        arguments:
+            $paymentTypes: '%env(json:PAYMENT_TYPES)%'

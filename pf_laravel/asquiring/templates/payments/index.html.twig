@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PaymentsController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1>Order</h1>
+    <p>status: {{ order.status }}</p>
+    <p>time to expire: {{ order.timeToExpire }} </p>
+
+    {% if (order.status in constant('App\\Enum\\Status::ALLOWED_TO_PAYMENT_CREATE')) and (not order.isExpired) %}
+        <form method="POST" action="pay" id="payments-preview" class="form-horizontal product-form" autocomplete="off" enctype="multipart/form-data">
+            <input type="hidden" name="orderId" value="{{ order.id }}">
+            <div class="ins-container">
+                <div class="ins-container__header">Варианты оплаты</div>
+                <div class="ins-container__inside">
+                    <button class="btn btn-primary" type="submit" name="provider" value="{{ constant('App\\Enum\\Provider::ALFA') }}">Альфа</button>
+                    <button class="btn btn-primary" type="submit" name="provider" value="{{ constant('App\\Enum\\Provider::RBK') }}">РБК</button>
+                </div>
+            </div>
+        </form>
+    {% endif %}
+
+    <p>{{ order }}</p>
+
+</div>
+{% endblock %}
